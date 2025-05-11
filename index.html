@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- أيقونات Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <button id="langToggle">English</button>
+
+      <header>
+        <h1
+          data-lang-ar="مرحباً بك في صفحتنا"
+          data-lang-en="Welcome to our page">
+          مرحباً بك في صفحتنا
+        </h1>
+        <p
+          data-lang-ar="نحن سعداء بزيارتك! تابعنا على مواقع التواصل الاجتماعي."
+          data-lang-en="We're glad you're here! Follow us on social media.">
+          نحن سعداء بزيارتك! تابعنا على مواقع التواصل الاجتماعي.
+        </p>
+      </header>
+
+      <section class="social-icons">
+        <a
+          href="https://www.facebook.com/share/g/16Thutwq9q/?mibextid=wwXIfr"
+          class="icon facebook"
+          title="Facebook"
+          target="_blank">
+          <i class="fab fa-facebook-f"> </i>
+        </a>
+        <a
+          href="https://www.tiktok.com/@sheinmaster3?_t=ZS-8wFEcB9C9It&_r=1"
+          class="icon twitter"
+          title="Twitter"
+          target="_blank">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/shein_master_?igsh=MW80eWN4d3JxYTF5NA%3D%3D&utm_source=qr"
+          class="icon instagram"
+          title="Instagram"
+          target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </section>
+
+      <footer>
+        <p>shein master</p>
+      </footer>
+    </div>
+
+    <script>
+      const langToggleBtn = document.getElementById("langToggle");
+      let currentLang = "ar";
+
+      langToggleBtn.addEventListener("click", () => {
+        currentLang = currentLang === "ar" ? "en" : "ar";
+        langToggleBtn.textContent =
+          currentLang === "ar" ? "English" : "العربية";
+        document.body.dir = currentLang === "ar" ? "rtl" : "ltr";
+
+        document.querySelectorAll("[data-lang-ar]").forEach((el) => {
+          el.textContent =
+            currentLang === "ar"
+              ? el.getAttribute("data-lang-ar")
+              : el.getAttribute("data-lang-en");
+        });
+      });
+    </script>
+  </body>
+</html>
